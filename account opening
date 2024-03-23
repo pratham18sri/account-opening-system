@@ -1,0 +1,44 @@
+c_acc=input("Type Create if you want to create account in our bank==")
+c_acc.lower()
+if(c_acc=="create"):
+  name=input("enter your name==")
+  number=input(" enter your phone number==")
+  age=int(input("enter you age=="))
+  if(age>=18):
+    city=input(" enter your city==")
+    acc_pin=input("create your account pin ==")
+    details={"name":name,"number":number,"age":age,"city":city,"account pin":acc_pin}
+    print(details)
+    dep=int(input("press 1 for deposite money=="))
+    if(dep==1):
+      dep_amt=eval(input(" enter amount you want to deposit=="))
+      amt={"deposit amount==":dep_amt}
+      print(amt)
+      wdr=int(input("press 2 for withdraw=="))
+      enter_pin=input(" enter pin==")
+      if(enter_pin==acc_pin):
+        if(wdr==2):
+          wdr_am=eval(input(" enter amount to withdraw=="))
+          wdr_amt={"withdraw amount==":wdr_am}
+          amt.update(wdr_amt)
+          print(amt)
+          if(eval(dep_amt)>=eval(wdr_am)):
+            check=int(input("press 3 for check balance =="))
+            if(check==3):
+              bal={}
+              bal=eval(dep_amt)-eval(wdr_am)
+              print("account balance",bal)
+            else:
+             print("press 3 or invalid ")
+          else:
+            print(" withdraw amout is more than deposit ")
+        else:
+         print(" press 2 or invalid")
+      else:
+        print("invalid pin")
+    else:
+      print("press 1 or invalid")
+  else:
+    print(" you age is not eligeable to create account")
+else:
+  print(" type Create or invalid input")
